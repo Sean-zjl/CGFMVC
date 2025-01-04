@@ -104,7 +104,7 @@ for iData = 1:nData
                 for iRepeat = 1:nRepeat
                     rng(random_seeds(iRepeat),'twister');
                     tic;    
-                    [label, alpha, beta, objHistory] = SMGC(As, nCluster, eta, knn_size);
+                    [label, alpha, beta, objHistory] = CGFMVC(As, nCluster, eta, knn_size);
                     ans.evals(nMeasure+1,iRepeat) = toc;
                     ans.evals(1:nMeasure,iRepeat) = my_eval_y(label, Y);
                 end

@@ -5,7 +5,7 @@ data_path = fullfile(pwd, "..", filesep, "data");
 addpath(data_path);
 lib_path = fullfile(pwd, "..", filesep, "lib");
 addpath(lib_path);
-code_path = fullfile(pwd, "..", filesep, "SMGC-ICASSP-2025");
+code_path = fullfile(pwd, "..", filesep, "CGFMVC-ICASSP-2025");
 addpath(genpath(code_path));
 
 %% Datas
@@ -104,7 +104,7 @@ for iData = 1:nData
                 for iRepeat = 1:nRepeat
                     rng(random_seeds(iRepeat),'twister');
                     tic;    
-                    [label, alpha, beta, objHistory] = SMGC(As, nCluster, eta, knn_size);
+                    [label, alpha, beta, objHistory] = CGFMVC(As, nCluster, eta, knn_size);
                     ans.evals(nMeasure+1,iRepeat) = toc;
                     ans.evals(1:nMeasure,iRepeat) = my_eval_y(label, Y);
                 end
